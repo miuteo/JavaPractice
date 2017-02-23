@@ -13,7 +13,6 @@ public class Main {
         System.out.println(true && false || true && true && true);
 
 
-
     }
     public  void doWork(){
          new Thread(()-> System.out.println(this.toString())).start();

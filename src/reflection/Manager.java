@@ -16,6 +16,8 @@ public class Manager extends Employee {
     public static void main(String[]args){
         Manager[] bosses = new Manager[10];
         Employee[] empls =  bosses;
+        String as="asfasf";
+        as.hashCode();
 //        empls[0] = new Employee("Asfas",13);//Runtime error
 //        bosses[0] = new Employee("Asfas",13);//Compile error
     }
