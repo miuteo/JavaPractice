@@ -1,4 +1,4 @@
-package java8inAction.firstLambda;
+package java8inAction.chapter3;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -27,7 +27,7 @@ public class FirstLambda {
                 }
             });
             ///or using lambda
-            readFile(br -> "");
+        System.out.println(readFile(br -> ""));
 
     }
 }

@@ -1,4 +1,4 @@
-package java8inAction.firstLambda;
+package java8inAction.chapter3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
