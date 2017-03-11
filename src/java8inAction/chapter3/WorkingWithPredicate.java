@@ -15,13 +15,18 @@ public class WorkingWithPredicate {
         }
         return result;
     }
-    public static void main(String[]args){
+    public static void main(String[]args) {
         List<String> lista = new ArrayList<>();
         lista.add("abc");
         lista.add("ab");
         lista.add("bca");
         lista.add("cab");
-
-        System.out.println( filter(lista,cuv -> cuv.startsWith("a")));
+        System.out.println(filter(lista, new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+               return s.startsWith("b");
+            }
+        }));//OR
+        System.out.println(filter(lista, cuv -> cuv.startsWith("a")));
     }
 }
