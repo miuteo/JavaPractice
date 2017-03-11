@@ -35,12 +35,12 @@ public class WorkingWithConsumer {
                 }
         });
 
-//        forEach(arrayListInteger, (int x) ->{
-//                if(x %2 ==0){
-//                    System.out.println(x);
-//                }
-//            }
-//        );//Why don't work??
+        forEach(arrayListInteger, x ->{
+                if((int)x % 2 ==0){
+                    System.out.println(x);
+                }
+            }
+        );
 
     }
 }
