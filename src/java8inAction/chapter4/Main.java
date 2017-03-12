@@ -25,11 +25,24 @@ public class Main {
         );
     }
     public static void main(String[]args){
-        List<String> threeHighCaloricDishNames = dishList.stream()
+        List<String> top3HighCaloricDishNames = dishList.stream()
                 .sorted(Comparator.comparing(Dish::getCalories).reversed())
                 .map(Dish::getName)
                 .limit(3).collect(Collectors.toList());
-        System.out.println(threeHighCaloricDishNames);
+//        System.out.println(top3HighCaloricDishNames);
+
+        List<String> threeHighCaloricDishName = dishList.stream()
+                .filter(d ->{
+                    System.out.println("filter "+d.getName());
+                    return d.getCalories()>300;
+                })
+                .map(d->{
+                    System.out.println("map "+d.getName());
+                    return d.getName();
+                }).limit(5).collect(Collectors.toList());
+        System.out.println("result="+threeHighCaloricDishName);
+
+        List<String> words = Arrays.asList("");
     }
 
 }
