@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by Asus x556 on 12-Mar-17.
@@ -42,7 +44,43 @@ public class Main {
                 }).limit(5).collect(Collectors.toList());
         System.out.println("result="+threeHighCaloricDishName);
 
-        List<String> words = Arrays.asList("");
+        List<String> words = Arrays.asList("Java8","Lambdas","In","Action");
+        List<Integer> wordLength = words.stream()
+                .map(String::length)
+                .collect(Collectors.toList());
+
+//        Stream<String> wordsStream1= words.stream();
+        Stream<String> wordsStream2= words.stream();
+//        Stream<String[]> wordsStreamSplit1 = wordsStream1.map(x -> x.split(""));
+        Stream<String[]> wordsStreamSplit2 = wordsStream2.map(x -> x.split(""));
+
+//        Stream<Stream<String>> map = wordsStreamSplit1.map(Arrays::stream);
+        Stream<String> flatMap =wordsStreamSplit2.flatMap(Arrays::stream);
+//        Stream<String> flatMap2 =wordsStreamSplit2.flatMap(a-> Arrays.stream(a));
+
+
+//        wordsStreamSplit.map(Arrays::stream);
+//        wordsStreamSplit.flatMap(Arrays::stream);
+
+
+
+//  <R> Stream<R>	flatMap(Function<? super T,? extends Stream<? extends R>> mapper)
+//  <R> Stream<R>	map(Function<? super T,    ? extends R> mapper)
+//     map        X super T     (R extends Y)==Stream<Stream<String>>
+//  flatMap      X super T     R extends Stream<Z extends Y>
+//    <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper);
+
+//
+//                map(word->word.split(""))
+//                .map(Arrays::stream);
+//                .distinct()
+//                .collect(Collectors.toList());
+        //<R> Stream<R> map(Function<? super T, ? extends R> mapper);
+        //<R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper);
+
+        List<String> distinctWords = flatMap.distinct().collect(Collectors.toList());
+        System.out.println(distinctWords);
+
     }
 
 }
