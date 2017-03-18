@@ -81,6 +81,22 @@ public class Main {
         List<String> distinctWords = flatMap.distinct().collect(Collectors.toList());
         System.out.println(distinctWords);
 
+        List<Integer> squareList = Arrays.asList(1,2,3,4,5);
+        System.out.println(squareList.stream().map(i->i*i).collect(Collectors.toList()));
+
+        List<Integer> a1 = Arrays.asList(1,2,3);
+        List<Integer> a2 = Arrays.asList(3,4);
+        a1.parallelStream().flatMap(i -> a2.parallelStream()
+                                .map(j ->new int[]{i,j}))
+                                .filter(ints -> (ints[0]+ints[1])%3==0)
+                 .forEach(ints -> System.out.print("("+ints[0]+","+ints[1]+")"));
+        System.out.println();
+        dishList.stream().filter(Dish::isVegetarian).findAny().ifPresent(dish -> System.out.println(dish.getName()));
+
+        a1.stream().reduce(0,(a,b)->a+b);
+        words.stream().reduce((a,b)->a.compareTo(b)<0?a:b).ifPresent(a-> System.out.println(a));
+        dishList.stream().map(d ->1).reduce(0,(a,b)->a+b);
+
     }
 
 }
