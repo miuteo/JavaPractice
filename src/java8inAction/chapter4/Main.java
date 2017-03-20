@@ -13,6 +13,8 @@ import java.util.stream.Stream;
  */
 public class Main {
     public static List<Dish> dishList;
+    public static List<Dish> dishListEmpty=new ArrayList<>();
+    public static List<Dish> dishListWithNullName;
     static{
         dishList= Arrays.asList(
                 new Dish("pork",false,800,Type.MEAT),
@@ -25,6 +27,11 @@ public class Main {
                 new Dish("prawns",false,300,Type.FISH),
                 new Dish("salmon",false,450,Type.FISH)
         );
+        dishListWithNullName = Arrays.asList(
+                new Dish(null,false,500,Type.MEAT)
+//                new Dish("pork",false,800,Type.MEAT)
+                );
+
     }
     public static void main(String[]args){
         List<String> top3HighCaloricDishNames = dishList.stream()
@@ -96,6 +103,13 @@ public class Main {
         a1.stream().reduce(0,(a,b)->a+b);
         words.stream().reduce((a,b)->a.compareTo(b)<0?a:b).ifPresent(a-> System.out.println(a));
         dishList.stream().map(d ->1).reduce(0,(a,b)->a+b);
+
+
+        Dish caloricDish = dishListEmpty.stream().max(Comparator.nullsLast(Comparator.comparing(Dish::getName))).orElse(null);
+
+        System.out.println(dishListWithNullName.stream()
+                .filter(d->d.getName()!=null)
+                .max(Comparator.comparing(Dish::getName)).orElse(null));
 
     }
 
