@@ -56,6 +56,39 @@ public class Main {
 
         System.out.println("Find The transaction with the smalest value");
         System.out.println(transactions.stream().min(Comparator.comparingInt(Transaction::getValue)).orElse(null));
+//        ArrayList<Long> listaLunga = new ArrayList<>();
+//        long start =System.currentTimeMillis();
+//        for(long i=0;i<50.0;i++){
+//            listaLunga.add(i);
+//        }
+//        long endAdd = System.currentTimeMillis()-start;
+//
+//
+//        start = System.currentTimeMillis();
+//        long suma =0;
+//        for(Long i:listaLunga){
+//            if(i==2){
+//                break;
+//            }
+//        }
+//        long endIterate = System.currentTimeMillis()-start;
+//
+//        start=System.currentTimeMillis();
+//        listaLunga.stream().filter(value->value==2).findFirst().orElse(null);
+//        long endStreamSeq = System.currentTimeMillis()-start;
+//
+//        start=System.currentTimeMillis();
+//        listaLunga.parallelStream().filter(value->value==2).findAny().orElse(null);
+//        long endStreamParallel = System.currentTimeMillis()-start;
+//
+//
+//
+//        System.out.println("endAdd="+endAdd);
+//        System.out.println("endIterate="+endIterate);
+//        System.out.println("endStreamParallel="+endStreamParallel);
+//        System.out.println("endStreamSeq="+endStreamSeq);
+
+
     }
 
 }
