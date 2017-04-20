@@ -1,5 +1,6 @@
 package java8inAction.chapter7;
 
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Function;
 import java.util.stream.LongStream;
 
@@ -11,6 +12,7 @@ public class Main {
         System.out.println("parallel range sum done in: " + measureSumPerf(Main::sideEffectSum,10_000_000)+"msecs");
 //        String date ="2017-05-06 01:29:59";
 //        System.out.println(date.replaceAll("\\-","").replaceAll("[ :]",""));
+        AtomicLong a;
     }
 
     public static long measureSumPerf(Function<Long,Long> adder,long n){
