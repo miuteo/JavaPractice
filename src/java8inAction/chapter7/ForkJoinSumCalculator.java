@@ -55,6 +55,7 @@ public class ForkJoinSumCalculator extends java.util.concurrent.RecursiveTask<Lo
     }
 
     public static void main(String[]args){
-        System.out.println(forkJoinSum(10_000_000));
+//        System.out.println(forkJoinSum(10_000_000));
+        System.out.println(Main.measureSumPerf(ForkJoinSumCalculator::forkJoinSum,10_000_000));
     }
 }
